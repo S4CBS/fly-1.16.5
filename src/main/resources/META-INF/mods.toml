@@ -12,11 +12,12 @@ displayURL="https://github.com/S4CBS/fly-1.16.5"
 authors="S4CBS"
 
 [[dependencies.fly]]
-    modId="minecraft"
-    mandatory=true
-    versionRange="[1.16.5]"
-    ordering="NONE"
-    side="BOTH"
+modId="minecraft"
+mandatory=true
+versionRange="[1.16.5]"
+ordering="NONE"
+side="BOTH"
+
 
 
 

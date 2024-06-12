@@ -37,7 +37,7 @@ public class FlyprocjoinintheworldProcedure {
 			return;
 		}
 		Entity entity = (Entity) dependencies.get("entity");
-		if ((entity.getCapability(FlyModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new FlyModVariables.PlayerVariables())).fly_on_off == 1) {
+		if (FlyModVariables.fly_on_off == 1) {
 			if (entity instanceof PlayerEntity) {
 				((PlayerEntity) entity).abilities.allowFlying = (true);
 				((PlayerEntity) entity).sendPlayerAbilities();

@@ -17,20 +17,13 @@ public class FlyProcProcedure {
 			return;
 		}
 		Entity entity = (Entity) dependencies.get("entity");
-		if ((entity.getCapability(FlyModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new FlyModVariables.PlayerVariables())).fly_on_off == 0) {
+		if (FlyModVariables.fly_on_off == 0) {
 			if (entity instanceof PlayerEntity) {
 				((PlayerEntity) entity).abilities.allowFlying = (true);
 				((PlayerEntity) entity).sendPlayerAbilities();
 			}
-			{
-				double _setval = 1;
-				entity.getCapability(FlyModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
-					capability.fly_on_off = _setval;
-					capability.syncPlayerVariables(entity);
-				});
-			}
-		} else if ((entity.getCapability(FlyModVariables.PLAYER_VARIABLES_CAPABILITY, null)
-				.orElse(new FlyModVariables.PlayerVariables())).fly_on_off == 1) {
+			FlyModVariables.fly_on_off = 1;
+		} else if (FlyModVariables.fly_on_off == 1) {
 			if (entity instanceof PlayerEntity) {
 				((PlayerEntity) entity).abilities.allowFlying = (false);
 				((PlayerEntity) entity).sendPlayerAbilities();
@@ -39,13 +32,7 @@ public class FlyProcProcedure {
 				((PlayerEntity) entity).abilities.isFlying = (false);
 				((PlayerEntity) entity).sendPlayerAbilities();
 			}
-			{
-				double _setval = 0;
-				entity.getCapability(FlyModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
-					capability.fly_on_off = _setval;
-					capability.syncPlayerVariables(entity);
-				});
-			}
+			FlyModVariables.fly_on_off = 0;
 		}
 	}
 }
